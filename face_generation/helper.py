@@ -119,7 +119,9 @@ def images_square_grid(images, mode):
     for col_i, col_images in enumerate(images_in_square):
         for image_i, image in enumerate(col_images):
             im = Image.fromarray(image, mode)
-            new_im.paste(im, (col_i * images.shape[1], image_i * images.shape[2]))
+            #new_im.paste(im, (col_i * images.shape[1], image_i * images.shape[2]))
+            # switch layout to put in full row first
+            new_im.paste(im, (image_i * images.shape[2], col_i * images.shape[1]))
 
     return new_im
 
