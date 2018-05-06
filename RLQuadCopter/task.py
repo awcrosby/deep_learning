@@ -34,11 +34,15 @@ class Task():
 #         reward = reward / self.action_repeat
 #         return reward
 
-        # linear distance to reward, normalized -1.0 to 1.0
-        dist = np.linalg.norm(abs(self.sim.pose[:3] - self.target_pos[:3]))
+        # linear z distance to reward, normalized -1.0 to 1.0 
+        dist = abs(self.sim.pose[2] - self.target_pos[2])
+
+        ## linear distance to reward, normalized -1.0 to 1.0
+        #dist = np.linalg.norm(abs(self.sim.pose[:3] - self.target_pos[:3]))
         start_dist = self.target_pos[2]
         reward = 1 - 2 * (dist / start_dist)
         reward = np.clip(reward, -1.0, 1.0)
+        reward = reward / self.action_repeat
         return reward
         
 #         # linear z velocity to reward, normalized -1.0 to 1.0

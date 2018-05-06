@@ -13,7 +13,7 @@ HIDDEN2_UNITS = 128 #128
 HIDDEN3_UNITS = 256
 L2_LAMBDA = 0.0001 # 0.001
 L_RATE = 0.01  # 0.001
-EPSILON = 0.001  # None
+EPSILON = 0.005  # None
 
 class DDPG():
     """Reinforcement Learning agent that learns using DDPG."""
